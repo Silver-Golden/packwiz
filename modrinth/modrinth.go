@@ -338,6 +338,9 @@ func getLatestVersion(projectID string, name string, pack core.Pack) (*modrinthA
 		fmt.Printf("Warning: Modrinth versions for %s inconsistent between latest version number and newest release date (%s vs %s)\n", name, *flexverLatest.VersionNumber, *releaseDateLatest.VersionNumber)
 	}
 
+	if flexverLatest.VersionNumber != nil {
+		return flexverLatest, nil
+	}
 	return releaseDateLatest, nil
 }
 
